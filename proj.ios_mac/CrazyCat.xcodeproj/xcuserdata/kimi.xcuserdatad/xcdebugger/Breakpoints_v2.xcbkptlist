@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameController.cpp"
-            timestampString = "463833315.596495"
+            timestampString = "463833702.368268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "GameController::ShortestPathMethod(GameMap &amp;gmap)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameController.cpp"
-            timestampString = "463833315.596495"
+            timestampString = "463833702.368268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "GameController::ShortestPathMethod(GameMap &amp;gmap)"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameController.cpp"
-            timestampString = "463833315.596495"
+            timestampString = "463833702.368268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "GameController::InitMapForShortestPath(GameMap &amp;gmap)"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameController.cpp"
-            timestampString = "463833315.596495"
+            timestampString = "463833702.368268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "GameController::_CalculatePathValue(GameMap &amp;gmap)"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MainGamePlayScene.cpp"
-            timestampString = "463828367.273592"
+            timestampString = "463834385.06385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "MainGamePlayScene::menuReplayCallback(cocos2d::Ref* pSender)"
             landmarkType = "5">
          </BreakpointContent>

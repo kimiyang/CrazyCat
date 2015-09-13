@@ -199,6 +199,7 @@ void MainGamePlayScene::onTouchEnded(cocos2d::CCTouch  *pTouche, cocos2d::CCEven
                 gmap.DrawAtPosition(draw,i * 9 + j);
                 gmap.MapNodes[i * 9 + j]->obstacle = true;
                 int nextCatMove = gcontroller.NextMove(gmap);
+                stepsTaken++;
                 if (nextCatMove >= 0)
                 {
                     danceAnimationSprite->setPosition(Vec2(gmap.MapNodes[nextCatMove]->posX, gmap.MapNodes[nextCatMove]->posY + gmap.radius));
@@ -223,6 +224,7 @@ void MainGamePlayScene::onTouchEnded(cocos2d::CCTouch  *pTouche, cocos2d::CCEven
                     Label* scoreTextLabel = Label::createWithSystemFont(scoreText, "Arial", 8);
                     scoreTextLabel->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 0.75 + origin.y));
                     this->addChild(scoreTextLabel, 20, "scoreLabel");
+                    scoreTextLabel->setTextColor(Color4B::BLACK);
 
                 }
                 
@@ -242,7 +244,7 @@ void MainGamePlayScene::menuReplayCallback(cocos2d::Ref* pSender)
     gmap.InitMap(visibleSize.width, visibleSize.height, origin.x, origin.y, 7);
     gmap.DrawMap(draw);
     gmap.catAtNode = 40;
-    
+    stepsTaken = 0;
     
     auto danceAnimationSprite = this->getChildByName("spriteDancingAnimation");
     float catPosOffset = gmap.radius;
