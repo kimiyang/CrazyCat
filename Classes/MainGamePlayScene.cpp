@@ -37,6 +37,7 @@ bool MainGamePlayScene::init()
 	//addChild(rootNode);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    stepsTaken = 0;
 
 	auto backgroundSprite = Sprite::create("bg.jpg"); 
 	backgroundSprite->setScale(1.2);
@@ -120,7 +121,8 @@ bool MainGamePlayScene::init()
                                            "replay.png",
                                            CC_CALLBACK_1(MainGamePlayScene::menuReplayCallback, this));
     
-    replayButton->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 3 / 4 + origin.y));
+    replayButton->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 0.7 + origin.y));
+    
     
     
     auto menu = Menu::create(replayButton, NULL);
@@ -180,7 +182,10 @@ void MainGamePlayScene::onTouchEnded(cocos2d::CCTouch  *pTouche, cocos2d::CCEven
 {
 	Vec2 pos = pTouche->getLocation();
     auto danceAnimationSprite = this->getChildByName("spriteDancingAnimation");
-
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
+    
     for (int i = 0; i < 9; i++)
     {
         for (int j = 0; j < 9; j++)
@@ -212,6 +217,13 @@ void MainGamePlayScene::onTouchEnded(cocos2d::CCTouch  *pTouche, cocos2d::CCEven
                     caughtAnimationSprite->setZOrder(15);
                     caughtAnimationSprite->setPosition(danceAnimationSprite->getPosition());
                     this->getChildByName("replayButton")->setZOrder(20);
+                    std::ostringstream scoreStream;
+                    scoreStream << stepsTaken;
+                    string scoreText = "你用了 " + scoreStream.str() + " 步";
+                    Label* scoreTextLabel = Label::createWithSystemFont(scoreText, "Arial", 8);
+                    scoreTextLabel->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 0.75 + origin.y));
+                    this->addChild(scoreTextLabel, 20, "scoreLabel");
+
                 }
                 
                 break;
@@ -243,6 +255,8 @@ void MainGamePlayScene::menuReplayCallback(cocos2d::Ref* pSender)
     this->getChildByName("failedSprite")->setZOrder(0);
     this->getChildByName("successSprite")->setZOrder(0);
     this->getChildByName("replayButton")->setZOrder(0);
+    
+    this->removeChildByName("scoreLabel");
 
 
 }

@@ -17,10 +17,11 @@ public:
 	~GameController(){};
 private:
 	void InitMapForShortestPath(GameMap &gmap);
-	void _CalculatePathValue(GameMap &gmap, int startNode, int dim);
+	void _CalculatePathValue(GameMap &gmap);
 	int RandomMethod(GameMap &gmap);
 	int ShortestPathMethod(GameMap &gmap);
 	int DFSTreeMethod(GameMap &gmap);
+    void _CalculatePathValueAtNode(GameMap &gmap, int index);
 };
 
 #endif // __GAMECONTROLLER_H__

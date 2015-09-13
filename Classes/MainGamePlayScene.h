@@ -30,7 +30,7 @@ private:
 
     GameController gcontroller;
     GameMap gmap;
-    
+    int stepsTaken;
 
 
 };
