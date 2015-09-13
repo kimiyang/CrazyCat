@@ -17,7 +17,6 @@ int GameController::NextMove(GameMap &gmap)
 	return ShortestPathMethod(gmap);
 }
 
-
 void GameController::_CalculatePathValueAtNode(GameMap &gmap, int index)
 {
     if(gmap.MapNodes[index]->obstacle)
