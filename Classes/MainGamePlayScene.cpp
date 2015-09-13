@@ -56,8 +56,6 @@ bool MainGamePlayScene::init()
     failedSprite->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 3 / 4 + origin.y));
 
     
-    
-    
     SpriteFrameCache * spriteCacheDance = SpriteFrameCache::getInstance();
     spriteCacheDance->addSpriteFramesWithFile("stayDancing.plist");
     
@@ -99,14 +97,8 @@ bool MainGamePlayScene::init()
     spriteCaughtAnimation->runAction(RepeatForever::create(animateCaught));
     this->addChild(spriteCaughtAnimation,0,"spriteCaughtAnimation");
 
-    
-    
-    
-
 	auto draw = DrawNode::create();
-	//this->addChild(draw, 10);
-    
-    
+
     gmap.InitMap(visibleSize.width, visibleSize.height, origin.x, origin.y, 7);
     gmap.DrawMap(draw);
 	
@@ -195,7 +187,6 @@ void MainGamePlayScene::onTouchEnded(cocos2d::CCTouch  *pTouche, cocos2d::CCEven
                 if(gmap.MapNodes[i * 9 + j]->obstacle)
                     break;
                 DrawNode* draw = (DrawNode*)this->getChildByName("draw");
-                //draw->drawDot(Vec2(circlePos[i * 9 + j][0], circlePos[i * 9 + j][1]), 10, Color4F::RED);
                 gmap.DrawAtPosition(draw,i * 9 + j);
                 gmap.MapNodes[i * 9 + j]->obstacle = true;
                 int nextCatMove = gcontroller.NextMove(gmap);
@@ -257,9 +248,6 @@ void MainGamePlayScene::menuReplayCallback(cocos2d::Ref* pSender)
     this->getChildByName("failedSprite")->setZOrder(0);
     this->getChildByName("successSprite")->setZOrder(0);
     this->getChildByName("replayButton")->setZOrder(0);
-    
     this->removeChildByName("scoreLabel");
-
-
 }
 
