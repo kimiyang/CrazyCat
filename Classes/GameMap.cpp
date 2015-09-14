@@ -9,6 +9,8 @@ using namespace cocos2d;
 GameMap::GameMap()
 {
 	catAtNode = 40;
+	for (int j = 0; j < MAP_DIM * MAP_DIM; j++)
+		MapNodes[j] = NULL;
 }
 
 
