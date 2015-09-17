@@ -84,6 +84,22 @@ void GameController::InitMapForShortestPath(GameMap &gmap)
 	
 }
 
+int GameController::DFSTreeMethod(GameMap &gmap)
+{
+	vector<int> children = gmap.GetAvailableNeighborsNode(gmap.catAtNode);
+	for (size_t i = 0; i < children.size(); ++i)
+	{
+		if (gmap.IsBorder(children[i]))
+			return children[i];
+	}
+
+	vector<int> result = gmap.DFSPathSearch(gmap.ps.m_Node);
+	if (result.back() == -1)
+		return -1;
+	else
+		return result[0];
+}
+
 int GameController::ShortestPathMethod(GameMap &gmap)
 {
 	InitMapForShortestPath(gmap);

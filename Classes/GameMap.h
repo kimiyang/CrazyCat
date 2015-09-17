@@ -14,21 +14,25 @@ struct TreeNode {
 	float posX;
 	float posY;
 	bool obstacle;
-	vector<TreeNode*> childList;
+	vector<int> childList;
 
 	TreeNode(int v = 0, int d = 0, float x = 0.0f, float y = 0.0f, bool obst = false) :
 		val(v), depth(d), posX(x), posY(y), obstacle(obst){}
 
 	~TreeNode()
 	{
-		TreeNode* n;
-        for (auto var : childList)
-		{
-			delete var;
-		}
+		//TreeNode* n;
+  //      for (auto var : childList)
+		//{
+		//	delete var;
+		//}
 	}
 };
 
+struct PathStruct {
+	map<int, int> m_Hash;
+	int m_Node;
+};
 
 
 class GameMap
@@ -45,6 +49,9 @@ public:
 	bool IsBorder(int node);
 	int GetAvailableNeighborsNodeNum(int node);
 	int GetMaxPathNeighbor(int node);
+	void InitDFSPath(int catPos);
+	vector<int> DFSPathSearch(int startNode);
+	void AppendPathNodeChildren(int node, int depth);
 
 	~GameMap()
 	{
@@ -54,10 +61,14 @@ public:
 	TreeNode* MapNodes[81];
 	int radius;
 	int catAtNode;
+
+	PathStruct ps;
 private:
 	
 	float originX;
 	float originY;
+
+	
 };
 
 #endif // __GAMEMAP_H__
