@@ -69,6 +69,125 @@ void GameMap::InitMap(int gameWidth, int gameHight, float gameOriginX, float gam
 
 }
 
+
+void GameMap::InitDFSPath(int catPos)
+{
+	/*ps.m_Hash.clear();
+	ps.m_Node = NULL;
+
+	ps.m_Node = catPos;
+	ps.m_Hash.insert(catPos, 0);
+	int depth = 1;
+
+	queue<int> que;
+	que.push(catPos);
+	while (!que.empty())
+	{
+		size_t qSize = que.size();
+		for (size_t i = 0; i < qSize; i++)
+		{
+			int current = que.back();
+			ps.m_Hash.insert(current, depth);
+			AppendPathNodeChildren(que.back(), depth);
+			que.pop();
+			for (size_t j = 0; j < MapNodes[current]->childList.size(); j++)
+				que.push(MapNodes[current]->childList[j]);
+		}
+		depth++;
+	}*/
+}
+
+
+vector<int> GameMap::DFSPathSearch(int startNode)
+{
+	vector<int> path;
+	/*vector<int> around = GetAvailableNeighborsNode(startNode);
+	int findWays = 0;
+	size_t availableSize = around.size();
+	for (int i = 0; i < around.size(); ++i)
+	{
+		if (IsBorder(around[i]))
+		{
+			around[i] = -1;
+			++findWays;
+			availableSize--;
+		}
+	}
+	if (findWays == 0)
+	{
+		if (availableSize > MapNodes[startNode]->depth)
+		{
+			path.push_back(startNode);
+			vector<vector<int>> tempPath;
+			for (size_t i = 0; i < around.size(); i++)
+			{
+				if (around[i] != -1)
+					tempPath.push_back(DFSPathSearch(around[i]));
+			}
+			int minPathLen = MAX_VAL;
+			int pos = -1;
+			for (size_t i = 0; i < tempPath.size(); i++)
+			{
+				if (tempPath[i].back() != -1 && tempPath[i].size() < minPathLen)
+				{
+					minPathLen = tempPath[i].size();
+					pos = i;
+				}
+			}
+			if (pos != -1)
+				path.push_back(tempPath[pos][0]);
+			else path.push_back(-1);
+		}
+		else path.push_back(-1);
+	}
+	else if (findWays == 1)
+	{
+		if (availableSize > 0)
+		{
+			path.push_back(startNode);
+			vector<vector<int>> tempPath;
+			for (size_t i = 0; i < around.size(); i++)
+			{
+				if (around[i] != -1)
+					tempPath.push_back(DFSPathSearch(around[i]));
+			}
+			int minPathLen = MAX_VAL;
+			int pos = -1;
+			for (size_t i = 0; i < tempPath.size(); i++)
+			{
+				if (tempPath[i].back() != -1 && tempPath[i].size() < minPathLen)
+				{
+					minPathLen = tempPath[i].size();
+					pos = i;
+				}
+			}
+			if (pos != -1)
+				path.push_back(tempPath[pos][0]);
+			else path.push_back(-1);
+		}
+		else path.push_back(-1);
+	}
+	else path.push_back(-1);*/
+	return path;
+}
+
+void GameMap::AppendPathNodeChildren(int node, int depth)
+{
+	vector<int> around = GetNeighborsNode(node);
+	if (around.size() < 6)
+		return;
+
+	for (int i = 0; i < 6; ++i)
+	{
+		if (!MapNodes[around[i]]->obstacle && !(ps.m_Hash.find(around[i]) != ps.m_Hash.end()))
+		{
+			MapNodes[node]->childList.push_back(around[i]);
+			MapNodes[around[i]]->depth = depth;
+			
+		}
+	}
+}
+
 void GameMap::DrawMap(DrawNode* draw)
 {
 	for (int i = 0; i < MAP_DIM; i++)
@@ -148,17 +267,56 @@ vector<int> GameMap::GetAvailableNeighborsNode(int node)
 	return around;
 }
 
+
+int GameMap::GetAvailableNeighborsNodeNum(int node)
+{
+	if (IsBorder(node))
+	{
+		return 0;
+	}
+	int rtVal = 0;
+	int oddCompensate;
+	if ((int)(node / MAP_DIM) % 2 == 0)
+		oddCompensate = 0;
+	else
+		oddCompensate = 1;
+	if (!MapNodes[node - 1]->obstacle)
+		rtVal++;
+	if (!MapNodes[node - (MAP_DIM + 1) + oddCompensate]->obstacle)
+		rtVal++;
+	if (!MapNodes[node - MAP_DIM + oddCompensate]->obstacle)
+		rtVal++;
+	if (!MapNodes[node + 1]->obstacle)
+		rtVal++;
+	if (!MapNodes[node + MAP_DIM + oddCompensate]->obstacle)
+		rtVal++;
+	if (!MapNodes[node + (MAP_DIM - 1) + oddCompensate]->obstacle)
+		rtVal++;
+	return rtVal;
+}
+
 int GameMap::GetMinNeighbor(int node)
 {
 	int minValue = MAX_VAL;
 	int rtNeighbor = -1;
 	vector<int>neighbor = GetAvailableNeighborsNode(node);
+	int maxPath = 0;
 	for (int pos = 0; pos < neighbor.size(); ++pos)
 	{
 		if (MapNodes[neighbor[pos]]->val < minValue)
 		{
 			minValue = MapNodes[neighbor[pos]]->val;
 			rtNeighbor = neighbor[pos];
+			maxPath = GetAvailableNeighborsNodeNum(rtNeighbor);
+		}
+		else if (MapNodes[neighbor[pos]]->val == minValue)
+		{
+			int tempMaxPath = GetAvailableNeighborsNodeNum(rtNeighbor);
+			if (tempMaxPath > maxPath)
+			{
+				rtNeighbor = neighbor[pos];
+				maxPath = tempMaxPath;
+			}
 		}
 	}
 	return rtNeighbor;
@@ -174,4 +332,22 @@ int GameMap::GetMinPathValueFromNeighbors(int node)
 			minValue = MapNodes[neighbor[pos]]->val;
 	}
 	return minValue;
+}
+
+
+int GameMap::GetMaxPathNeighbor(int node)
+{
+	vector<int> neighbors = GetAvailableNeighborsNode(node);
+	int maxPath = 0;
+	int rtNeighbor = -1;
+	for (int pos = 0; pos < neighbors.size(); ++pos)
+	{
+		int tempMaxPath = GetAvailableNeighborsNodeNum(neighbors[pos]);
+		if (tempMaxPath > maxPath)
+		{
+			rtNeighbor = neighbors[pos];
+			maxPath = tempMaxPath;
+		}
+	}
+	return rtNeighbor;
 }
