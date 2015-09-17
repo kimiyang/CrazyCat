@@ -1,3 +1,4 @@
+# CrazyCat
 Crazy cat, a simple strategy game, your target is to trap the cat with minimum steps.
 Using 3 algorithms for cat moving AI.
 
@@ -6,4 +7,4 @@ Using 3 algorithms for cat moving AI.
 3. DFS tree
 
 Now the cat is quite smart, try your best to beat it~
-# CrazyCat
+
