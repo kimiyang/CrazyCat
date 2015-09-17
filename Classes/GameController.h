@@ -22,6 +22,7 @@ private:
 	int ShortestPathMethod(GameMap &gmap);
 	int DFSTreeMethod(GameMap &gmap);
     void _CalculatePathValueAtNode(GameMap &gmap, int index);
+	
 };
 
 #endif // __GAMECONTROLLER_H__
