@@ -199,9 +199,10 @@ void MainGamePlayScene::onTouchEnded(cocos2d::CCTouch  *pTouche, cocos2d::CCEven
                     {
                         this->getChildByName("failedSprite")->setZOrder(20);
                         this->getChildByName("replayButton")->setZOrder(20);
+                        break;
                     }
                 }
-                else
+                if(nextCatMove < 0 || gcontroller.IsCaught(gmap))
                 {
                     this->getChildByName("successSprite")->setZOrder(20);
                     danceAnimationSprite->setZOrder(0);

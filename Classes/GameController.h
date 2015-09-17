@@ -14,6 +14,7 @@ public:
 	GameController(){}
 	void InitController();
 	int NextMove(GameMap &gmap);
+    bool IsCaught(GameMap &gmap);
 	~GameController(){};
 private:
 	void InitMapForShortestPath(GameMap &gmap);

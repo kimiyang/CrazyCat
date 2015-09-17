@@ -51,7 +51,7 @@ public:
 	int GetMaxPathNeighbor(int node);
 	void InitDFSPath(int catPos);
 	vector<int> DFSPathSearch(int startNode);
-	void AppendPathNodeChildren(int node, int depth);
+	void AppendPathNodeChildren(int node);
 
 	~GameMap()
 	{

@@ -58,7 +58,7 @@ void GameMap::InitMap(int gameWidth, int gameHight, float gameOriginX, float gam
 		else rNumsCandidates.push_back(i);
 	for (int i = 0; i < randomNums; i++)
 	{
-		int vsize = rNumsCandidates.size();
+		size_t vsize = rNumsCandidates.size();
 		int rN = CCRANDOM_0_1()*vsize;
 		MapNodes[rNumsCandidates[rN]]->obstacle = true;
 		int temp = rNumsCandidates[vsize - 1];
@@ -72,12 +72,15 @@ void GameMap::InitMap(int gameWidth, int gameHight, float gameOriginX, float gam
 
 void GameMap::InitDFSPath(int catPos)
 {
-	/*ps.m_Hash.clear();
-	ps.m_Node = NULL;
-
+	ps.m_Hash.clear();
 	ps.m_Node = catPos;
-	ps.m_Hash.insert(catPos, 0);
-	int depth = 1;
+    for(int i=0;i<MAP_DIM * MAP_DIM;i++)
+    {
+        MapNodes[i]->childList.clear();
+        MapNodes[i]->depth = 0;
+    }
+    MapNodes[catPos]->depth = 0;
+	int depth = 0;
 
 	queue<int> que;
 	que.push(catPos);
@@ -86,22 +89,24 @@ void GameMap::InitDFSPath(int catPos)
 		size_t qSize = que.size();
 		for (size_t i = 0; i < qSize; i++)
 		{
-			int current = que.back();
-			ps.m_Hash.insert(current, depth);
-			AppendPathNodeChildren(que.back(), depth);
-			que.pop();
+			int current = que.front();
+            que.pop();
+            if(ps.m_Hash.find(current) != ps.m_Hash.end())continue;
+			ps.m_Hash[current] = depth;
+            MapNodes[current]->depth = depth;
+			AppendPathNodeChildren(current);
 			for (size_t j = 0; j < MapNodes[current]->childList.size(); j++)
 				que.push(MapNodes[current]->childList[j]);
 		}
 		depth++;
-	}*/
+	}
 }
 
 
 vector<int> GameMap::DFSPathSearch(int startNode)
 {
 	vector<int> path;
-	/*vector<int> around = GetAvailableNeighborsNode(startNode);
+    vector<int> around = MapNodes[startNode]->childList;
 	int findWays = 0;
 	size_t availableSize = around.size();
 	for (int i = 0; i < around.size(); ++i)
@@ -124,8 +129,8 @@ vector<int> GameMap::DFSPathSearch(int startNode)
 				if (around[i] != -1)
 					tempPath.push_back(DFSPathSearch(around[i]));
 			}
-			int minPathLen = MAX_VAL;
-			int pos = -1;
+			size_t minPathLen = MAX_VAL;
+			size_t pos = -1;
 			for (size_t i = 0; i < tempPath.size(); i++)
 			{
 				if (tempPath[i].back() != -1 && tempPath[i].size() < minPathLen)
@@ -134,8 +139,11 @@ vector<int> GameMap::DFSPathSearch(int startNode)
 					pos = i;
 				}
 			}
-			if (pos != -1)
-				path.push_back(tempPath[pos][0]);
+            if (pos != -1)
+            {
+                for(int k=0;k<tempPath[pos].size();k++)
+                    path.push_back(tempPath[pos][k]);
+            }
 			else path.push_back(-1);
 		}
 		else path.push_back(-1);
@@ -151,8 +159,8 @@ vector<int> GameMap::DFSPathSearch(int startNode)
 				if (around[i] != -1)
 					tempPath.push_back(DFSPathSearch(around[i]));
 			}
-			int minPathLen = MAX_VAL;
-			int pos = -1;
+			size_t minPathLen = MAX_VAL;
+			size_t pos = -1;
 			for (size_t i = 0; i < tempPath.size(); i++)
 			{
 				if (tempPath[i].back() != -1 && tempPath[i].size() < minPathLen)
@@ -162,16 +170,20 @@ vector<int> GameMap::DFSPathSearch(int startNode)
 				}
 			}
 			if (pos != -1)
-				path.push_back(tempPath[pos][0]);
+            {
+                for(int k=0;k<tempPath[pos].size();k++)
+                    path.push_back(tempPath[pos][k]);
+            }
+				
 			else path.push_back(-1);
 		}
 		else path.push_back(-1);
 	}
-	else path.push_back(-1);*/
+	else path.push_back(startNode);
 	return path;
 }
 
-void GameMap::AppendPathNodeChildren(int node, int depth)
+void GameMap::AppendPathNodeChildren(int node)
 {
 	vector<int> around = GetNeighborsNode(node);
 	if (around.size() < 6)
@@ -182,8 +194,6 @@ void GameMap::AppendPathNodeChildren(int node, int depth)
 		if (!MapNodes[around[i]]->obstacle && !(ps.m_Hash.find(around[i]) != ps.m_Hash.end()))
 		{
 			MapNodes[node]->childList.push_back(around[i]);
-			MapNodes[around[i]]->depth = depth;
-			
 		}
 	}
 }

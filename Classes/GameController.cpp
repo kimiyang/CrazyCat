@@ -14,7 +14,10 @@ void GameController::InitController()
 
 int GameController::NextMove(GameMap &gmap)
 {
-	return ShortestPathMethod(gmap);
+    int next = DFSTreeMethod(gmap);
+    if(next != -1)
+        return next;
+    return ShortestPathMethod(gmap);
 }
 
 void GameController::_CalculatePathValueAtNode(GameMap &gmap, int index)
@@ -86,18 +89,18 @@ void GameController::InitMapForShortestPath(GameMap &gmap)
 
 int GameController::DFSTreeMethod(GameMap &gmap)
 {
-	vector<int> children = gmap.GetAvailableNeighborsNode(gmap.catAtNode);
+    gmap.InitDFSPath(gmap.catAtNode);
+    vector<int> children = gmap.MapNodes[gmap.catAtNode]->childList;
 	for (size_t i = 0; i < children.size(); ++i)
 	{
 		if (gmap.IsBorder(children[i]))
 			return children[i];
 	}
-
 	vector<int> result = gmap.DFSPathSearch(gmap.ps.m_Node);
 	if (result.back() == -1)
-		return -1;
+		return ShortestPathMethod(gmap);
 	else
-		return result[0];
+		return result[1];
 }
 
 int GameController::ShortestPathMethod(GameMap &gmap)
@@ -117,4 +120,9 @@ int GameController::RandomMethod(GameMap &gmap)
 	if (around.size() > 0)
 		return around[CCRANDOM_0_1()*(around.size() - 1)];
 	return -1;
+}
+
+bool GameController::IsCaught(GameMap &gmap)
+{
+    return gmap.GetAvailableNeighborsNode(gmap.catAtNode).size() == 0;
 }
