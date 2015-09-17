@@ -43,6 +43,8 @@ public:
 	vector<int> GetNeighborsNode(int node);
 	vector<int> GetAvailableNeighborsNode(int node);
 	bool IsBorder(int node);
+	int GetAvailableNeighborsNodeNum(int node);
+	int GetMaxPathNeighbor(int node);
 
 	~GameMap()
 	{

@@ -90,6 +90,9 @@ int GameController::ShortestPathMethod(GameMap &gmap)
 	int neighbor = gmap.GetMinNeighbor(gmap.catAtNode);
 	if (neighbor > 0)
 		return neighbor;
+	neighbor = gmap.GetMaxPathNeighbor(gmap.catAtNode);
+	if (neighbor > 0)
+		return neighbor;
 	return RandomMethod(gmap);
 }
 int GameController::RandomMethod(GameMap &gmap)

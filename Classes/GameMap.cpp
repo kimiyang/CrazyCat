@@ -148,17 +148,56 @@ vector<int> GameMap::GetAvailableNeighborsNode(int node)
 	return around;
 }
 
+
+int GameMap::GetAvailableNeighborsNodeNum(int node)
+{
+	if (IsBorder(node))
+	{
+		return 0;
+	}
+	int rtVal = 0;
+	int oddCompensate;
+	if ((int)(node / MAP_DIM) % 2 == 0)
+		oddCompensate = 0;
+	else
+		oddCompensate = 1;
+	if (!MapNodes[node - 1]->obstacle)
+		rtVal++;
+	if (!MapNodes[node - (MAP_DIM + 1) + oddCompensate]->obstacle)
+		rtVal++;
+	if (!MapNodes[node - MAP_DIM + oddCompensate]->obstacle)
+		rtVal++;
+	if (!MapNodes[node + 1]->obstacle)
+		rtVal++;
+	if (!MapNodes[node + MAP_DIM + oddCompensate]->obstacle)
+		rtVal++;
+	if (!MapNodes[node + (MAP_DIM - 1) + oddCompensate]->obstacle)
+		rtVal++;
+	return rtVal;
+}
+
 int GameMap::GetMinNeighbor(int node)
 {
 	int minValue = MAX_VAL;
 	int rtNeighbor = -1;
 	vector<int>neighbor = GetAvailableNeighborsNode(node);
+	int maxPath = 0;
 	for (int pos = 0; pos < neighbor.size(); ++pos)
 	{
 		if (MapNodes[neighbor[pos]]->val < minValue)
 		{
 			minValue = MapNodes[neighbor[pos]]->val;
 			rtNeighbor = neighbor[pos];
+			maxPath = GetAvailableNeighborsNodeNum(rtNeighbor);
+		}
+		else if (MapNodes[neighbor[pos]]->val == minValue)
+		{
+			int tempMaxPath = GetAvailableNeighborsNodeNum(rtNeighbor);
+			if (tempMaxPath > maxPath)
+			{
+				rtNeighbor = neighbor[pos];
+				maxPath = tempMaxPath;
+			}
 		}
 	}
 	return rtNeighbor;
@@ -174,4 +213,22 @@ int GameMap::GetMinPathValueFromNeighbors(int node)
 			minValue = MapNodes[neighbor[pos]]->val;
 	}
 	return minValue;
+}
+
+
+int GameMap::GetMaxPathNeighbor(int node)
+{
+	vector<int> neighbors = GetAvailableNeighborsNode(node);
+	int maxPath = 0;
+	int rtNeighbor = -1;
+	for (int pos = 0; pos < neighbors.size(); ++pos)
+	{
+		int tempMaxPath = GetAvailableNeighborsNodeNum(neighbors[pos]);
+		if (tempMaxPath > maxPath)
+		{
+			rtNeighbor = neighbors[pos];
+			maxPath = tempMaxPath;
+		}
+	}
+	return rtNeighbor;
 }
