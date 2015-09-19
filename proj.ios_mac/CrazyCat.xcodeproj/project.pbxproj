@@ -30,6 +30,7 @@
 		3F560FA91BA078050003AC11 /* stayDancing.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F560F671BA078050003AC11 /* stayDancing.plist */; };
 		3F560FAB1BA078670003AC11 /* stayDancing.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F560FAA1BA078670003AC11 /* stayDancing.png */; };
 		3F560FAC1BA078670003AC11 /* stayDancing.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F560FAA1BA078670003AC11 /* stayDancing.png */; };
+		3F815D681BAD3C0400F42044 /* CrazyCat-mobile.app in Resources */ = {isa = PBXBuildFile; fileRef = 1D6058910D05DD3D006BFB54 /* CrazyCat-mobile.app */; };
 		3F93D34C1BA20457002D0A36 /* caught.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F93D34B1BA20457002D0A36 /* caught.png */; };
 		3F93D34D1BA20457002D0A36 /* caught.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F93D34B1BA20457002D0A36 /* caught.png */; };
 		3FE422EA1B9DE479003D7060 /* MainGamePlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE422E91B9DE479003D7060 /* MainGamePlayScene.cpp */; };
@@ -148,6 +149,8 @@
 		3F560F471BA078050003AC11 /* caught.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = caught.plist; sourceTree = "<group>"; };
 		3F560F671BA078050003AC11 /* stayDancing.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stayDancing.plist; sourceTree = "<group>"; };
 		3F560FAA1BA078670003AC11 /* stayDancing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stayDancing.png; sourceTree = "<group>"; };
+		3F815D5F1BAD1FCA00F42044 /* CrazyCat-mobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "CrazyCat-mobile.entitlements"; sourceTree = "<group>"; };
+		3F815D661BAD3BB600F42044 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "CrazyCat-mobile/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		3F93D34B1BA20457002D0A36 /* caught.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caught.png; sourceTree = "<group>"; };
 		3FE422E91B9DE479003D7060 /* MainGamePlayScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGamePlayScene.cpp; sourceTree = "<group>"; };
 		3FE422EC1B9DE49F003D7060 /* MainGamePlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGamePlayScene.h; sourceTree = "<group>"; };
@@ -291,6 +294,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				3F815D5F1BAD1FCA00F42044 /* CrazyCat-mobile.entitlements */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
@@ -331,6 +335,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3F815D661BAD3BB600F42044 /* Images.xcassets */,
 				3F3D60471BA1D86800E091D4 /* failed.png */,
 				3F3D60481BA1D86800E091D4 /* replay.png */,
 				3F3D60491BA1D86800E091D4 /* victory.png */,
@@ -465,6 +470,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 759DJ8ZBB9;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CrazyCat" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -541,6 +556,7 @@
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
+				3F815D681BAD3C0400F42044 /* CrazyCat-mobile.app in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				3FE422F51B9DE58C003D7060 /* bg.jpg in Resources */,
@@ -626,7 +642,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -651,6 +670,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -662,12 +682,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					USE_FILE32API,
+					CC_TARGET_OS_IPHONE,
+					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
 					USE_FILE32API,
 					CC_TARGET_OS_IPHONE,
 					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
@@ -685,6 +713,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
