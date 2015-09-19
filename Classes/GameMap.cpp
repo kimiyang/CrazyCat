@@ -6,28 +6,20 @@
 USING_NS_CC;
 using namespace cocos2d;
 
-GameMap::GameMap()
-{
-	catAtNode = 40;
-	for (int j = 0; j < MAP_DIM * MAP_DIM; j++)
-		MapNodes[j] = NULL;
-}
 
-
-void GameMap::InitMap(int gameWidth, int gameHight, float gameOriginX, float gameOriginY, int dotRadius)
+void GameMap::InitMap(int gameWidth, int gameHight, float gameOriginX, float gameOriginY)
 {
 	float fromHeight = gameHight * 0.3;
 	float fromWidth = gameWidth * 0.3;
 	originX = gameOriginX;
 	originY = gameOriginY;
-	radius = dotRadius;
 
 	float oddOffSet = gameWidth * 0.05;
 	float offSet = 0.0f;
     
 	for (int i = 1; i <= MAP_DIM; i++)
 	{
-		fromHeight = gameHight * 0.11 * 0.6 * i;
+		fromHeight = gameHight * 0.1 * 0.6 * i + gameHight * 0.05;
 		if (i % 2 == 0)
 			offSet = oddOffSet;
 		else offSet = 0.0f;

@@ -38,8 +38,14 @@ struct PathStruct {
 class GameMap
 {
 public:
-	GameMap();
-	void InitMap(int gameWidth, int gameHight, float gameOriginX, float gameOriginY, int radius);
+	GameMap(int dRadius = 7)
+    {
+        catAtNode = 40;
+        for (int j = 0; j < MAP_DIM * MAP_DIM; j++)
+            MapNodes[j] = NULL;
+        radius = dRadius;
+    }
+	void InitMap(int gameWidth, int gameHight, float gameOriginX, float gameOriginY);
 	void DrawMap(DrawNode* draw);
 	void DrawAtPosition(DrawNode* draw, int dotNumber);
 	int GetMinPathValueFromNeighbors(int node);

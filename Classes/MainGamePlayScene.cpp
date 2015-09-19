@@ -39,6 +39,8 @@ bool MainGamePlayScene::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
     stepsTaken = 0;
 
+    gmap.radius = 8;
+    
 	auto backgroundSprite = Sprite::create("bg.jpg"); 
 	backgroundSprite->setScale(1.2);
 	backgroundSprite->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
@@ -99,7 +101,7 @@ bool MainGamePlayScene::init()
 
 	auto draw = DrawNode::create();
 
-    gmap.InitMap(visibleSize.width, visibleSize.height, origin.x, origin.y, 7);
+    gmap.InitMap(visibleSize.width, visibleSize.height, origin.x, origin.y);
     gmap.DrawMap(draw);
 	
     float catPosOffset = gmap.radius;
@@ -172,6 +174,9 @@ void MainGamePlayScene::onTouchMoved(cocos2d::CCTouch  *pTouche, cocos2d::CCEven
 
 void MainGamePlayScene::onTouchEnded(cocos2d::CCTouch  *pTouche, cocos2d::CCEvent *pEvent)
 {
+    if(gcontroller.IsCaught(gmap))
+        return;
+    
 	Vec2 pos = pTouche->getLocation();
     auto danceAnimationSprite = this->getChildByName("spriteDancingAnimation");
     Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -233,7 +238,7 @@ void MainGamePlayScene::menuReplayCallback(cocos2d::Ref* pSender)
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     DrawNode* draw = (DrawNode*)this->getChildByName("draw");
-    gmap.InitMap(visibleSize.width, visibleSize.height, origin.x, origin.y, 7);
+    gmap.InitMap(visibleSize.width, visibleSize.height, origin.x, origin.y);
     gmap.DrawMap(draw);
     gmap.catAtNode = 40;
     stepsTaken = 0;
