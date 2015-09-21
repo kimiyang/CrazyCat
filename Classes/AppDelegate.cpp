@@ -1,6 +1,8 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 #include "MyStartUpScene.h"
+#include "PluginChartboost/PluginChartboost.h"
+
 
 USING_NS_CC;
 
@@ -81,6 +83,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // run
     director->runWithScene(scene);
 
+    sdkbox::PluginChartboost::init();
+    
     return true;
 }
 

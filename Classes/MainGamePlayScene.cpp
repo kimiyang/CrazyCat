@@ -1,6 +1,7 @@
 ﻿#include "MainGamePlayScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "PluginChartboost/PluginChartboost.h"
 
 
 USING_NS_CC;
@@ -142,7 +143,6 @@ bool MainGamePlayScene::init()
 	touchListener->onTouchEnded = CC_CALLBACK_2(MainGamePlayScene::onTouchEnded, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 		 
-	
 	return true;
 }
 
@@ -255,5 +255,7 @@ void MainGamePlayScene::menuReplayCallback(cocos2d::Ref* pSender)
     this->getChildByName("successSprite")->setZOrder(0);
     this->getChildByName("replayButton")->setZOrder(0);
     this->removeChildByName("scoreLabel");
+    
+    sdkbox::PluginChartboost::show(sdkbox::CB_Location_Default);
 }
 

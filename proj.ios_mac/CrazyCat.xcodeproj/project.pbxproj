@@ -30,7 +30,20 @@
 		3F560FA91BA078050003AC11 /* stayDancing.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F560F671BA078050003AC11 /* stayDancing.plist */; };
 		3F560FAB1BA078670003AC11 /* stayDancing.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F560FAA1BA078670003AC11 /* stayDancing.png */; };
 		3F560FAC1BA078670003AC11 /* stayDancing.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F560FAA1BA078670003AC11 /* stayDancing.png */; };
-		3F815D681BAD3C0400F42044 /* CrazyCat-mobile.app in Resources */ = {isa = PBXBuildFile; fileRef = 1D6058910D05DD3D006BFB54 /* CrazyCat-mobile.app */; };
+		3F6C23571BB0379000FBD236 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6C23501BB0379000FBD236 /* Icon-60.png */; };
+		3F6C23581BB0379000FBD236 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6C23511BB0379000FBD236 /* Icon-72.png */; };
+		3F6C23591BB0379000FBD236 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6C23521BB0379000FBD236 /* Icon-72@2x.png */; };
+		3F6C235A1BB0379000FBD236 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6C23531BB0379000FBD236 /* Icon-Small-50.png */; };
+		3F6C235B1BB0379000FBD236 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6C23541BB0379000FBD236 /* Icon-Small-50@2x.png */; };
+		3F6C235C1BB0379000FBD236 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6C23551BB0379000FBD236 /* Icon.png */; };
+		3F6C235D1BB0379000FBD236 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6C23561BB0379000FBD236 /* Icon@2x.png */; };
+		3F6C235F1BB037F200FBD236 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6C235E1BB037F200FBD236 /* Images-2.xcassets */; };
+		3F6C23631BB0430000FBD236 /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6C23601BB0430000FBD236 /* Chartboost.framework */; };
+		3F6C23641BB0430000FBD236 /* PluginChartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6C23611BB0430000FBD236 /* PluginChartboost.framework */; };
+		3F6C23651BB0430000FBD236 /* sdkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6C23621BB0430000FBD236 /* sdkbox.framework */; };
+		3F6C23681BB0451700FBD236 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6C23661BB0451700FBD236 /* AdSupport.framework */; };
+		3F6C23691BB0451700FBD236 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6C23671BB0451700FBD236 /* StoreKit.framework */; };
+		3F6C23741BB04AC300FBD236 /* sdkbox_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F6C23731BB04AC300FBD236 /* sdkbox_config.json */; };
 		3F93D34C1BA20457002D0A36 /* caught.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F93D34B1BA20457002D0A36 /* caught.png */; };
 		3F93D34D1BA20457002D0A36 /* caught.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F93D34B1BA20457002D0A36 /* caught.png */; };
 		3FE422EA1B9DE479003D7060 /* MainGamePlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE422E91B9DE479003D7060 /* MainGamePlayScene.cpp */; };
@@ -73,7 +86,6 @@
 		5087E78217EB970100C73F5D /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77717EB970100C73F5D /* Icon-144.png */; };
 		5087E78317EB970100C73F5D /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77817EB970100C73F5D /* Icon-152.png */; };
 		5087E78417EB970100C73F5D /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77917EB970100C73F5D /* Icon-57.png */; };
-		5087E78517EB970100C73F5D /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77A17EB970100C73F5D /* Icon-72.png */; };
 		5087E78617EB970100C73F5D /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77B17EB970100C73F5D /* Icon-76.png */; };
 		5087E78917EB974C00C73F5D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78817EB974C00C73F5D /* AppKit.framework */; };
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
@@ -149,6 +161,20 @@
 		3F560F471BA078050003AC11 /* caught.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = caught.plist; sourceTree = "<group>"; };
 		3F560F671BA078050003AC11 /* stayDancing.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stayDancing.plist; sourceTree = "<group>"; };
 		3F560FAA1BA078670003AC11 /* stayDancing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stayDancing.png; sourceTree = "<group>"; };
+		3F6C23501BB0379000FBD236 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
+		3F6C23511BB0379000FBD236 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		3F6C23521BB0379000FBD236 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		3F6C23531BB0379000FBD236 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		3F6C23541BB0379000FBD236 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		3F6C23551BB0379000FBD236 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		3F6C23561BB0379000FBD236 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		3F6C235E1BB037F200FBD236 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "CrazyCat-mobile/Images-2.xcassets"; sourceTree = SOURCE_ROOT; };
+		3F6C23601BB0430000FBD236 /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
+		3F6C23611BB0430000FBD236 /* PluginChartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginChartboost.framework; sourceTree = "<group>"; };
+		3F6C23621BB0430000FBD236 /* sdkbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = sdkbox.framework; sourceTree = "<group>"; };
+		3F6C23661BB0451700FBD236 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
+		3F6C23671BB0451700FBD236 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		3F6C23731BB04AC300FBD236 /* sdkbox_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sdkbox_config.json; sourceTree = "<group>"; };
 		3F815D5F1BAD1FCA00F42044 /* CrazyCat-mobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "CrazyCat-mobile.entitlements"; sourceTree = "<group>"; };
 		3F815D661BAD3BB600F42044 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "CrazyCat-mobile/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		3F93D34B1BA20457002D0A36 /* caught.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caught.png; sourceTree = "<group>"; };
@@ -188,7 +214,6 @@
 		5087E77717EB970100C73F5D /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-144.png"; sourceTree = "<group>"; };
 		5087E77817EB970100C73F5D /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
 		5087E77917EB970100C73F5D /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
-		5087E77A17EB970100C73F5D /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		5087E77B17EB970100C73F5D /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
 		5087E77C17EB970100C73F5D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5087E78817EB974C00C73F5D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -220,13 +245,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6C23691BB0451700FBD236 /* StoreKit.framework in Frameworks */,
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
+				3F6C23681BB0451700FBD236 /* AdSupport.framework in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
+				3F6C23641BB0430000FBD236 /* PluginChartboost.framework in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				3F6C23651BB0430000FBD236 /* sdkbox.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
+				3F6C23631BB0430000FBD236 /* Chartboost.framework in Frameworks */,
 				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
@@ -309,6 +339,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F6C23661BB0451700FBD236 /* AdSupport.framework */,
+				3F6C23671BB0451700FBD236 /* StoreKit.framework */,
+				3F6C23601BB0430000FBD236 /* Chartboost.framework */,
+				3F6C23611BB0430000FBD236 /* PluginChartboost.framework */,
+				3F6C23621BB0430000FBD236 /* sdkbox.framework */,
 				ED545A7D1B68A1FA00C3958E /* libiconv.dylib */,
 				ED545A7B1B68A1F400C3958E /* libiconv.dylib */,
 				8262943D1AAF051F00CB7CF7 /* Security.framework */,
@@ -335,6 +370,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3F6C235E1BB037F200FBD236 /* Images-2.xcassets */,
 				3F815D661BAD3BB600F42044 /* Images.xcassets */,
 				3F3D60471BA1D86800E091D4 /* failed.png */,
 				3F3D60481BA1D86800E091D4 /* replay.png */,
@@ -351,6 +387,7 @@
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
 				46880B7719C43A67006E1F66 /* CloseSelected.png */,
 				46880B7A19C43A67006E1F66 /* HelloWorld.png */,
+				3F6C23731BB04AC300FBD236 /* sdkbox_config.json */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -405,6 +442,13 @@
 				5087E77217EB970100C73F5D /* Default-568h@2x.png */,
 				5087E77317EB970100C73F5D /* Default.png */,
 				5087E77417EB970100C73F5D /* Default@2x.png */,
+				3F6C23501BB0379000FBD236 /* Icon-60.png */,
+				3F6C23511BB0379000FBD236 /* Icon-72.png */,
+				3F6C23521BB0379000FBD236 /* Icon-72@2x.png */,
+				3F6C23531BB0379000FBD236 /* Icon-Small-50.png */,
+				3F6C23541BB0379000FBD236 /* Icon-Small-50@2x.png */,
+				3F6C23551BB0379000FBD236 /* Icon.png */,
+				3F6C23561BB0379000FBD236 /* Icon@2x.png */,
 				50EF62A017ECD613001EB2F8 /* Icon-29.png */,
 				50EF62A117ECD613001EB2F8 /* Icon-50.png */,
 				50EF629217ECD46A001EB2F8 /* Icon-40.png */,
@@ -416,7 +460,6 @@
 				5087E77717EB970100C73F5D /* Icon-144.png */,
 				5087E77817EB970100C73F5D /* Icon-152.png */,
 				5087E77917EB970100C73F5D /* Icon-57.png */,
-				5087E77A17EB970100C73F5D /* Icon-72.png */,
 				5087E77B17EB970100C73F5D /* Icon-76.png */,
 				5087E77C17EB970100C73F5D /* Info.plist */,
 			);
@@ -490,6 +533,38 @@
 				Japanese,
 				French,
 				German,
+				ar,
+				ca,
+				cs,
+				da,
+				de,
+				el,
+				en,
+				es,
+				fi,
+				fr,
+				he,
+				hu,
+				id,
+				it,
+				ja,
+				ko,
+				ms,
+				nb,
+				nl,
+				pl,
+				"pt-BR",
+				pt,
+				ro,
+				ru,
+				sk,
+				sv,
+				th,
+				tr,
+				uk,
+				vi,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -529,38 +604,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6C23741BB04AC300FBD236 /* sdkbox_config.json in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				3F6C235D1BB0379000FBD236 /* Icon@2x.png in Resources */,
 				3F560FA81BA078050003AC11 /* stayDancing.plist in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				3FE422F71B9DE58C003D7060 /* btn_start.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
+				3F6C23591BB0379000FBD236 /* Icon-72@2x.png in Resources */,
 				3F3D604E1BA1D86800E091D4 /* victory.png in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
+				3F6C235C1BB0379000FBD236 /* Icon.png in Resources */,
+				3F6C235B1BB0379000FBD236 /* Icon-Small-50@2x.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
-				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				3F3D604A1BA1D86800E091D4 /* failed.png in Resources */,
+				3F6C235F1BB037F200FBD236 /* Images-2.xcassets in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				3F560F681BA078050003AC11 /* caught.plist in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				3FE422F91B9DE58C003D7060 /* doc-gray-circle.png in Resources */,
 				3F3D604C1BA1D86800E091D4 /* replay.png in Resources */,
+				3F6C235A1BB0379000FBD236 /* Icon-Small-50.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
-				3F815D681BAD3C0400F42044 /* CrazyCat-mobile.app in Resources */,
+				3F6C23571BB0379000FBD236 /* Icon-60.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				3FE422F51B9DE58C003D7060 /* bg.jpg in Resources */,
 				3F93D34C1BA20457002D0A36 /* caught.png in Resources */,
+				3F6C23581BB0379000FBD236 /* Icon-72.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				3F560FAB1BA078670003AC11 /* stayDancing.png in Resources */,
 			);
@@ -647,6 +729,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -687,6 +773,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
